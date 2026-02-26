@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zews • Premium Vault</title>
+    <title>Zews • 303 Services/Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
@@ -16,27 +16,19 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        .glass {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-        }
-
         .video-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
             z-index: -2;
-            filter: brightness(0.65) contrast(1.1);
+            filter: brightness(0.55) contrast(1.2) saturate(1.3);
         }
 
         .overlay {
             position: fixed;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.92));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
             z-index: -1;
         }
 
@@ -49,53 +41,38 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
-        .enter-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .enter-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 40%;
-            height: 400%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-            transform: skewX(-25deg);
-            animation: shine 3.5s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-150%) skewX(-25deg); }
-            20% { transform: translateX(300%) skewX(-25deg); }
-        }
-
-        .profile-card {
-            box-shadow: 0 30px 70px -15px rgb(0 0 0 / 0.65);
-        }
-
-        .avatar-ring {
-            box-shadow: 0 0 0 12px rgba(168, 85, 247, 0.4), 0 0 80px 25px rgba(168, 85, 247, 0.25);
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 12px rgba(168, 85, 247, 0.4), 0 0 80px 25px rgba(168, 85, 247, 0.25); }
-            50% { box-shadow: 0 0 0 16px rgba(168, 85, 247, 0.6), 0 0 100px 35px rgba(168, 85, 247, 0.35); }
+        .adult-pill {
+            background: linear-gradient(90deg, #ef4444, #b91c1c);
+            box-shadow: 0 0 40px -5px #ef4444;
         }
 
         .vault-btn {
-            background: linear-gradient(90deg, #7e22ce, #db2777);
-            box-shadow: 0 0 50px -5px #c026d3;
+            background: linear-gradient(90deg, #c026d3, #db2777);
+            box-shadow: 0 0 60px -10px #c026d3;
         }
-        
         .vault-btn:hover {
-            box-shadow: 0 0 70px -5px #c026d3;
-            transform: translateY(-3px);
+            box-shadow: 0 0 90px -5px #c026d3;
+            transform: scale(1.04);
+        }
+
+        .profile-card {
+            background: linear-gradient(180deg, #1e2937, #0f172a);
+            box-shadow: 0 40px 80px -20px rgba(192, 38, 211, 0.4);
+            border: 1px solid rgba(192, 38, 211, 0.3);
+        }
+
+        .avatar-frame {
+            border: 8px solid #a855f7;
+            box-shadow: 0 0 0 12px rgba(168, 85, 247, 0.25),
+                        0 0 60px 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 30px #c026d3,
+                         0 0 60px #db2777;
         }
     </style>
 </head>
@@ -108,142 +85,117 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- Entry Gate -->
+    <!-- ENTRY GATE (exactly like your images) -->
     <div id="gate" class="gate">
-        <div class="flex flex-col items-center gap-8 text-center px-6">
-            <div class="flex items-center gap-3 bg-red-600/90 text-white text-5xl font-black px-10 py-4 rounded-2xl border-4 border-white/30 shadow-2xl shadow-red-500/50">
-                <span class="text-6xl">🔞</span>
-                <div>
-                    <div class="text-3xl tracking-[6px]">ADULT ONLY</div>
-                    <div class="text-sm uppercase tracking-widest font-mono">+18</div>
-                </div>
+        <div class="w-full max-w-md px-6 flex flex-col items-center">
+            
+            <!-- Red Adult Only pill -->
+            <div class="adult-pill text-white text-xl font-bold tracking-widest px-10 py-3 rounded-3xl flex items-center gap-3 shadow-2xl mb-12">
+                <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center border-4 border-red-700 text-red-700 text-xl font-black">18</div>
+                <span>ADULT ONLY</span>
+                <span class="text-sm font-mono">+18</span>
             </div>
 
-            <div class="space-y-3">
-                <h1 class="title-font text-8xl md:text-9xl font-bold tracking-tighter bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                    ZEWS
-                </h1>
-                <p class="text-3xl text-purple-300 font-medium tracking-wide">PREMIUM VAULT</p>
-            </div>
+            <h1 class="title-font text-[92px] font-bold tracking-[-4px] bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent leading-none neon-text">
+                ZEWS
+            </h1>
+            
+            <p class="text-4xl font-medium tracking-widest text-purple-200 mt-1 mb-16">PREMIUM VAULT</p>
 
             <button onclick="enterSite()" 
-                    class="enter-btn group relative px-20 py-9 text-4xl font-semibold tracking-widest bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-3xl shadow-2xl shadow-purple-500/60 flex items-center gap-5 border border-white/20">
-                <span>ENTER THE REALM</span>
-                <i class="fa-solid fa-arrow-right text-5xl group-active:rotate-45"></i>
+                    class="vault-btn w-full max-w-xs py-8 rounded-3xl text-3xl font-semibold tracking-widest flex items-center justify-center gap-6 hover:scale-105 active:scale-95">
+                ENTER THE REALM
+                <i class="fa-solid fa-arrow-right text-4xl"></i>
             </button>
 
-            <p class="text-sm text-zinc-400 max-w-xs">
-                Mature & exclusive content.<br>18+ required.
+            <p class="mt-10 text-sm text-zinc-400 text-center font-light">
+                Mature &amp; exclusive content.<br>18+ required.
             </p>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="mainContent" class="hidden min-h-screen relative z-10 flex flex-col">
-        <!-- Top Bar -->
-        <div class="flex items-center justify-between px-8 py-6 border-b border-white/10 bg-black/60 backdrop-blur-2xl">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl flex items-center justify-center text-2xl font-bold shadow-inner">Z</div>
-                <div class="title-font text-3xl font-semibold tracking-tighter">ZEWS</div>
-            </div>
+    <!-- MAIN PAGE (exactly like your first image + 303 branding) -->
+    <div id="mainContent" class="hidden min-h-screen relative z-10 flex items-center justify-center p-6">
+        <div class="profile-card w-full max-w-[460px] rounded-3xl overflow-hidden">
             
-            <div class="flex items-center gap-6">
-                <a href="https://discord.gg/bBFrCtxZ4S" target="_blank" 
-                   class="flex items-center gap-3 bg-[#5865F2] hover:bg-[#4752C4] px-7 py-3 rounded-3xl text-sm font-semibold shadow-lg">
-                    <i class="fa-brands fa-discord text-xl"></i>
-                    <span>JOIN MY SERVER</span>
-                </a>
+            <!-- Banner -->
+            <div class="h-56 bg-cover bg-center relative" 
+                 style="background-image: url('https://picsum.photos/id/1015/1200/600')">
+                <!-- Replace with your own banner if you want -->
+                <div class="absolute top-4 right-4 bg-gradient-to-r from-purple-600 to-pink-600 text-xs font-bold px-6 py-1.5 rounded-3xl shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-gem"></i>
+                    NITRO
+                </div>
             </div>
-        </div>
 
-        <div class="flex-1 flex items-center justify-center p-8">
-            <!-- Discord-style Profile Card (real profile live) -->
-            <div class="profile-card glass w-full max-w-2xl rounded-3xl overflow-hidden border border-white/10">
-                <!-- Banner -->
-                <div class="h-60 bg-cover bg-center relative" 
-                     style="background-image: url('https://picsum.photos/id/1015/1200/600')">
-                    <!-- REPLACE WITH REAL BANNER: https://cdn.discordapp.com/banners/1457108992336597204/YOUR_HASH.png?size=1024 -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+            <!-- Avatar -->
+            <div class="relative -mt-20 px-8 flex justify-center">
+                <div class="relative">
+                    <img id="avatar" 
+                         src="https://picsum.photos/id/1011/600/600" 
+                         alt="Zews"
+                         class="w-40 h-40 rounded-3xl object-cover avatar-frame">
+                    <!-- Small green online dot (exactly like your image) -->
+                    <div class="absolute bottom-2 right-2 w-8 h-8 bg-emerald-400 rounded-2xl border-[5px] border-zinc-950 flex items-center justify-center">
+                        <i class="fa-solid fa-circle text-[10px] text-emerald-900"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="px-8 pb-12 pt-4 text-center">
+                <div class="flex justify-center items-center gap-4">
+                    <h1 class="title-font text-6xl font-bold tracking-tight">Zews</h1>
+                    <div class="px-5 py-1 bg-emerald-500/20 text-emerald-400 text-sm font-mono rounded-3xl border border-emerald-500/30">
+                        ONLINE
+                    </div>
+                </div>
+                
+                <div class="flex justify-center gap-2 text-zinc-400 text-sm mt-1">
+                    <span>@zews</span>
+                    <span class="text-purple-400">•</span>
+                    <span class="font-mono">1457108992336597204</span>
+                </div>
+
+                <!-- Badges -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center shadow-xl">
+                        <i class="fa-solid fa-gem text-white"></i>
+                    </div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl">
+                        <i class="fa-solid fa-crown text-white"></i>
+                    </div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-xl">
+                        <i class="fa-solid fa-fire text-white"></i>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="mt-10 text-zinc-200 text-[15px] leading-relaxed">
+                    Premium seller • +18 content only<br>
+                    Trusted since 2023 • Nitro &amp; Boosts<br>
+                    Cheats • Accounts • And many more...
+                </div>
+
+                <!-- 303 Branding -->
+                <div class="mt-12 text-purple-300 text-xs font-mono tracking-[3px]">303 SERVICES / SHOP</div>
+
+                <!-- Vault Section -->
+                <div class="mt-8">
+                    <div class="uppercase text-purple-300 text-xs tracking-[4px] font-medium mb-2">THE ULTIMATE EXPERIENCE</div>
+                    <h2 class="title-font text-5xl font-bold tracking-tighter leading-none neon-text">
+                        ENTER THE<br>PREMIUM VAULT
+                    </h2>
                     
-                    <div class="absolute top-6 right-6 px-6 py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 text-xs font-bold rounded-full flex items-center gap-2 shadow-xl">
-                        <i class="fa-solid fa-gem"></i>
-                        NITRO
-                    </div>
-                </div>
-
-                <!-- Avatar + Info -->
-                <div class="relative px-10 -mt-20">
-                    <div class="flex items-end gap-8">
-                        <div class="relative">
-                            <img id="avatar" 
-                                 src="https://picsum.photos/id/64/512/512" 
-                                 alt="Zews Avatar"
-                                 class="w-44 h-44 rounded-3xl border-[10px] border-zinc-950 object-cover avatar-ring shadow-2xl">
-                            <!-- REPLACE WITH REAL AVATAR: https://cdn.discordapp.com/avatars/1457108992336597204/YOUR_HASH.png?size=512 -->
-                            <!-- Status indicator -->
-                            <div class="absolute -bottom-1 -right-1 w-12 h-12 bg-emerald-500 rounded-3xl border-[7px] border-zinc-950 flex items-center justify-center text-2xl shadow-xl">
-                                <i class="fa-solid fa-gamepad"></i>
-                            </div>
-                        </div>
-
-                        <!-- Badges -->
-                        <div class="flex gap-3 pb-6 flex-wrap">
-                            <div class="w-11 h-11 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center shadow-xl border border-white/30">
-                                <i class="fa-solid fa-gem"></i>
-                            </div>
-                            <div class="w-11 h-11 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl border border-white/30">
-                                <i class="fa-solid fa-crown"></i>
-                            </div>
-                            <div class="w-11 h-11 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl border border-white/30">
-                                <i class="fa-solid fa-fire"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Username -->
-                    <div class="mt-4">
-                        <div class="flex items-baseline gap-4">
-                            <h1 class="title-font text-6xl font-bold tracking-tighter">Zews</h1>
-                            <span class="px-5 py-2 bg-emerald-500/20 text-emerald-400 text-sm font-mono border border-emerald-500/40 rounded-3xl flex items-center gap-2">
-                                <span class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                                ONLINE
-                            </span>
-                        </div>
-                        <div class="flex items-center gap-3 text-zinc-400 mt-1">
-                            <span class="font-mono">@zews</span>
-                            <span class="text-xs">•</span>
-                            <span class="font-mono text-xs text-purple-400">1457108992336597204</span>
-                        </div>
-                    </div>
-
-                    <!-- Bio -->
-                    <div class="mt-10 max-w-lg text-zinc-200 text-[17px] leading-relaxed">
-                        Premium seller • +18 content only<br>
-                        Trusted since 2023 • Nitro & Boosts<br>
-                        Cheats • Accounts • And many more...
-                    </div>
-
-                    <!-- Very Cool Website Statement + Button -->
-                    <div class="mt-16 text-center">
-                        <p class="uppercase tracking-[4px] text-purple-300 text-sm font-medium mb-3">THE ULTIMATE EXPERIENCE</p>
-                        <h2 class="text-5xl font-bold title-font tracking-tighter leading-none mb-8">
-                            ENTER THE<br>
-                            <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">PREMIUM VAULT</span>
-                        </h2>
-                        <a href="http://303.mysellauth.com/" target="_blank"
-                           class="vault-btn inline-flex items-center gap-5 px-16 py-8 rounded-3xl text-3xl font-semibold text-white hover:scale-[1.03] active:scale-95">
-                            ACCESS THE VAULT NOW
-                            <i class="fa-solid fa-arrow-right-long text-4xl"></i>
-                        </a>
-                        <p class="text-xs text-zinc-400 mt-6 font-mono">http://303.mysellauth.com/</p>
-                    </div>
+                    <a href="http://303.mysellauth.com/" target="_blank"
+                       class="vault-btn mt-10 block mx-auto w-full max-w-xs py-7 rounded-3xl text-2xl font-semibold tracking-widest flex items-center justify-center gap-4">
+                        ACCESS THE VAULT NOW
+                        <i class="fa-solid fa-arrow-right-long text-3xl"></i>
+                    </a>
+                    
+                    <p class="text-[10px] text-zinc-500 mt-6 font-mono">http://303.mysellauth.com/</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="py-8 text-center text-xs text-zinc-500">
-            +18 ONLY • EXCLUSIVE CONTENT
         </div>
     </div>
 
@@ -252,7 +204,7 @@
             const gate = document.getElementById('gate');
             const main = document.getElementById('mainContent');
             
-            gate.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+            gate.style.transition = 'opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1)';
             gate.style.opacity = '0';
             
             setTimeout(() => {
@@ -262,25 +214,26 @@
                 
                 const video = document.getElementById('bgVideo');
                 if (video.paused) video.play();
-            }, 1300);
+            }, 1500);
         }
 
-        document.addEventListener('keydown', e => {
-            if (e.key === "Enter" && document.getElementById('gate').style.display !== 'none') {
-                enterSite();
-            }
+        // Click anywhere on gate to enter
+        document.getElementById('gate').addEventListener('click', (e) => {
+            if (e.target.id === 'gate') enterSite();
         });
 
         window.addEventListener('load', () => {
             const video = document.getElementById('bgVideo');
-            video.volume = 0.12;
+            video.volume = 0.08;
             
-            document.getElementById('gate').addEventListener('click', e => {
-                if (e.target.id === 'gate') enterSite();
+            document.addEventListener('keydown', e => {
+                if (e.key === "Enter" && document.getElementById('gate').style.display !== 'none') {
+                    enterSite();
+                }
             });
         });
 
-        console.log('%c✅ Zews Premium Vault ready • video.mp4 + replace avatar/banner with your real Discord CDN links', 'color:#c026d3; font-family:monospace');
+        console.log('%c✅ Zews 303 Premium Vault ready • Replace avatar & banner URLs with your own for full personalization', 'color:#c026d3; font-family:monospace; font-size:13px');
     </script>
 </body>
 </html>
