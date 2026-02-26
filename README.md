@@ -1,7 +1,7 @@
 
-  # Modern Single-File Website
+  # Website presentation by Zews
 
-  This is a code bundle for Modern Single-File Website. The original project is available at https://www.figma.com/design/AJbofb8MJiQKNWMrgxEmF6/Modern-Single-File-Website.
+  This is a presentation website made by Zews to show people how good is he at coding, hope you like it! =)
 
   ## Running the code
 
